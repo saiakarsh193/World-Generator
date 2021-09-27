@@ -5,11 +5,11 @@ export function getBlockData(chunk_x, chunk_y, gridsize, layer)
     {
         for(let j = 0;j < gridsize;j ++)
         {
-            // if(Math.sqrt(Math.pow(i - (gridsize / 2), 2) + Math.pow(j - (gridsize / 2), 2)) < (gridsize / 2))
-            // {
-            //     bdata[i][j] = 'air';
-            // }
-            // else
+            if(Math.sqrt(Math.pow(i - (gridsize / 2), 2) + Math.pow(j - (gridsize / 2), 2)) < (gridsize / 2))
+            {
+                bdata[i][j] = 'air';
+            }
+            else
             {
                 if(i % 2 == 0)
                 {

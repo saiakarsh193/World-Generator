@@ -1,5 +1,5 @@
 import './three/three.js';
-import {OrbitControls} from './three/OrbitControls.js';
+// import {OrbitControls} from './three/OrbitControls.js';
 import {getBlockData} from './blockgen.js';
 
 main();
@@ -17,9 +17,9 @@ function main()
     camera.position.set(0, 5, 10);
     camera.lookAt(0, 0, 0);
 
-    const controls = new OrbitControls(camera, renderer.domElement);
-    controls.update();
-    controls.autoRotate = true;
+    // const controls = new OrbitControls(camera, renderer.domElement);
+    // controls.update();
+    // controls.autoRotate = true;
 
     const scene = new THREE.Scene();
     scene.background = new THREE.Color('#66ffed');
@@ -104,14 +104,14 @@ function main()
             camera.updateProjectionMatrix();
         }
 
-        controls.update();
+        // controls.update();
         renderer.render(scene, camera);
-        requestAnimationFrame(render);
+        // requestAnimationFrame(render);
     }
-    requestAnimationFrame(render);
+    // requestAnimationFrame(render);
     
-    // render();
+    render();
 
     // controls.addEventListener('change', render);
-    // window.addEventListener('resize', render);
+    window.addEventListener('resize', render);
 }
