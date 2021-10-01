@@ -1,4 +1,6 @@
-export { getBlockData, getColorMap};
+import { Random } from './tools/prng.js';
+
+export { getBlockData, getColorMap, tester };
 
 function getBlockData(chunk_x, chunk_y, gridsize, layer)
 {
@@ -33,4 +35,11 @@ function getBlockData(chunk_x, chunk_y, gridsize, layer)
 function getColorMap()
 {
     return {'air': 'Empty', 'white': [1, 1, 1], 'red': [1, 0, 0], 'green': [0, 1, 0], 'blue': [0, 0, 1], 'black': [0, 0, 0]};
+}
+
+function tester()
+{
+    let rn = new Random(4);
+    for(let i = 0;i < 20;i ++)
+        console.log(rn.random());
 }

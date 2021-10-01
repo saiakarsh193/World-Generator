@@ -1,7 +1,8 @@
 import './three/three.js';
 // import { OrbitControls } from './three/OrbitControls.js';
-import { getBlockData, getColorMap} from './blockgen.js';
+import { getBlockData, getColorMap, tester } from './blockgen.js';
 
+tester();
 main();
 
 function main()
