@@ -1,4 +1,6 @@
-export function getBlockData(chunk_x, chunk_y, gridsize, layer)
+export { getBlockData, getColorMap};
+
+function getBlockData(chunk_x, chunk_y, gridsize, layer)
 {
     let bdata = new Array(gridsize).fill(0).map(() => new Array(gridsize).fill('white'));
     for(let i = 0;i < gridsize;i ++)
@@ -26,4 +28,9 @@ export function getBlockData(chunk_x, chunk_y, gridsize, layer)
         }
     }
     return bdata;
+}
+
+function getColorMap()
+{
+    return {'air': 'Empty', 'white': [1, 1, 1], 'red': [1, 0, 0], 'green': [0, 1, 0], 'blue': [0, 0, 1], 'black': [0, 0, 0]};
 }

@@ -1,6 +1,6 @@
 import './three/three.js';
-// import {OrbitControls} from './three/OrbitControls.js';
-import {getBlockData} from './blockgen.js';
+// import { OrbitControls } from './three/OrbitControls.js';
+import { getBlockData, getColorMap} from './blockgen.js';
 
 main();
 
@@ -48,6 +48,7 @@ function main()
     let layersize = 3;
     let chunk_x = 0;
     let chunk_y = 0;
+    let colormap = getColorMap();
     let blockdata = [];
     {
         for(let layer = 0;layer < layersize;layer ++)
@@ -59,7 +60,6 @@ function main()
     {
         let cside = groundsize / gridsize;
         let geometry = new THREE.BoxGeometry(cside, cside, cside);
-        let colormap = {'air': 'Empty', 'white': [1, 1, 1], 'red': [1, 0, 0], 'green': [0, 1, 0], 'blue': [0, 0, 1], 'black': [0, 0, 0]};
         for(let layer = 0;layer < layersize;layer ++)
         {
             for(let row = 0;row < gridsize;row ++)
