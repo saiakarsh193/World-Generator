@@ -1,7 +1,7 @@
 import { getBlockData, getColorMap } from '../blockgen.js';
 
 let cx, cy;
-let gr;
+let grids = [];
 let colormap = getColorMap();
 
 class Grid
@@ -11,7 +11,7 @@ class Grid
         this.sx = sx;
         this.sy = sy;
         this.gridsize = gridsize;
-        this.side = 10;
+        this.side = 2;
         this.grid = data;
     }
 
@@ -36,18 +36,23 @@ class Grid
 
 function setup()
 {
-    createCanvas(1200, 680);
+    createCanvas(1400, 680);
 
     cx = width / 2;
     cy = height / 2;
-    gr = new Grid(-500, -300, 15, getBlockData(0, 0, 15, 0));
+    grids.push(new Grid(-650, -300, 128, getBlockData(0, 0, 128, 0)));
+    grids.push(new Grid(-350, -300, 128, getBlockData(0, 0, 128, 1)));
+    grids.push(new Grid( -50, -300, 128, getBlockData(0, 0, 128, 2)));
 }
 
 function draw()
 {
     background(200);
     translate(cx, cy);
-    gr.draw();
+    grids.forEach((gr) => 
+    {
+        gr.draw();
+    });
     noLoop();
 }
 
